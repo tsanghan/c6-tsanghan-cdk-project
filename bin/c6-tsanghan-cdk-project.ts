@@ -4,7 +4,14 @@ import * as cdk from 'aws-cdk-lib';
 import { C6TsanghanCdkProjectStack } from '../lib/c6-tsanghan-cdk-project-stack';
 
 const app = new cdk.App();
-new C6TsanghanCdkProjectStack(app, 'C6TsanghanCdkProjectStack', {
+new C6TsanghanCdkProjectStack(
+  app,
+  'C6TsanghanTSS3CdkProjectStack',
+  {
+    description: "tsanghan-ce6: This stack is synth by TypeScript",
+    tags: {"Name": "tsanghan-ce6"},
+    env: { account: process.env.AWS_ACCOUNT_ID, region: process.env.AWS_DEFAULT_REGION }
+  },
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
@@ -18,4 +25,4 @@ new C6TsanghanCdkProjectStack(app, 'C6TsanghanCdkProjectStack', {
   // env: { account: '123456789012', region: 'us-east-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-});
+);
